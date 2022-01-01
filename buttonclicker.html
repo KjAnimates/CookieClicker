@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <title>Cookie Clicker™</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<html lang="en">
+    <body>
+        <!--for inspect use, copy the form.-->
+<form name="canvas">
+
+<div id="cookie_clicked">
+<h1 id="clicked">0</h1>
+</div>
+<label>cps: <span id="cps_count"></span></label>
+<br />
+<label id="cookie" onclick="click()" tabindex="1" title="click da cookie!">🍪</label>
+<br>
+<label id="ug10">&uArr; (upgrade clicks per second by <span id="added"></span>) cost: <span id="amount"></span> clicks</label>
+<script>
+const added = document.getElementById("added");
+const amount = document.getElementById("amount");
+const dt = document.getElementById("dt");
+const cpsCount = document.getElementById("cps_count");
+const ug10 = document.getElementById("ug10");
+const cookie = document.getElementById("cookie");
+const result = document.getElementById("clicked");
+var ogadded = 5;
+var addedCPS = 1;
+var clicked = 0;
+var cps = 0;
+var interval = 600;
+ug10.onclick = upgrade_click;
+var ug10Cost = 50;
+amount.innerHTML = ug10Cost;
+added.innerText = addedCPS;
+function upgrade_click() {
+if (clicked >= ug10Cost) {
+clicked = clicked - ug10Cost;
+cps = cps + addedCPS;
+}
+}
+cookie.onclick = function () {
+clicked++;
+}
+cookie.style.cursor = "pointer";
+cookie.style.webkitUserSelect = "none";
+setInterval(function () {
+result.innerHTML = clicked;
+cpsCount.innerText = cps;
+if (clicked < 0){
+clicked = 0;
+}
+if (cps == 0){
+cpsCount.innerText = "None Yet";
+}
+document.title = "Cookie Clicker! (cookies clicked:" + clicked + ")";
+}, 0.1);
+setInterval(function () {
+clicked = clicked + cps;
+}, interval);console.log("<h1>hi</h1>");
+
+</script>
+</form>
+    </body>
+</html>

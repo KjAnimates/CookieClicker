@@ -1,0 +1,31 @@
+#cookie{
+    font-size: 70px;
+    animation-name: cookie-click;
+    animation-duration: 0.5s;
+    font-family: 'Ink Free';
+    background-color: transparent;
+    tab-size: 5px;
+    border: thick;
+
+}
+#cookie_clicked{
+    display: block;
+    background: #858585;
+    width: 25%;
+    align-content: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+border-radius: 5px;
+
+
+}
+body{
+    background-color: #505050;
+    color: rgb(255, 255, 255);
+    user-select: none;
+}
+code{
+    display: inline-block;
+    background-color: #858585;
+    border-radius: 5px;
+}
